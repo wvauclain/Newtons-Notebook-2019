@@ -1,0 +1,97 @@
+\nnarticleheader{Squaring Prime Numbers}{Mickey Fairorth '19}
+
+\subsection*{Conjecture}
+
+The result of squaring any prime number \(P\) will result in a number that is one more than a multiple of 24, given that \(P > 3\).
+
+\subsection*{Proof 1:}
+
+The first step in this proof is to establish where prime numbers fall relative to other numbers. So let’s look at a number line and notice where all the primes are relative to other numbers:
+\[1  \quad 2 \quad 3 \quad 4 \quad \textbf{5} \quad [6] \quad \textbf{7} \quad 8 \quad 9 \quad 10 \quad \textbf{11} \quad [12] \quad \textbf{13} \quad 14 \quad 15 \quad 16 \quad \textbf{17} \quad [18] \quad \textbf{19} \quad 20 \quad 21 \quad 22 \quad \textbf{23} \quad [24] \quad 25\]
+
+*For this proof, 2 and 3 are subprimes and will not be regarded as prime.
+
+Clearly, the primes are always one less or one more than a multiple of 6. This may seem puzzling at first but makes sense at second glance. Obviously, primes cannot be multiples of 6 because then they would not be prime. They also must not fall two above or below multiples of 6 because then they would be even and therefore have 2 as a factor. Finally, primes cannot be halfway between multiples of 6 because they would have 3 as a factor, so prime numbers must be directly above or below a multiple of 6. This does not imply that every number above or below a multiple of 6 is a prime, but that every prime must be above or below a multiple of 6. For example, the number 25 is one above 24 but is not prime. 
+
+Now that we have established where the primes are located, we can represent them algebraically.
+
+
+\[
+    \begin{cases}
+    P = 6k + 1, k \in \mathbb{Z} \\
+    P = 6k - 1, k \in \mathbb{Z}
+    \end{cases}
+\]
+
+Every k must be odd or even, which means \(k\) can be substituted for \(2m\) and \(2m +1\).
+
+\[
+  \begin{cases}
+    P = 6(2m) + 1, m \in \mathbb{Z} \\
+    P = 6(2m + 1) + 1, m \in \mathbb{Z}
+  \end{cases} \Longrightarrow \begin{cases}
+    P = 12m + 1, m \in \mathbb{Z} \\
+    P = 12m + 7, m \in \mathbb{Z}
+  \end{cases}
+\]
+
+\[
+  \begin{cases}
+    P = 6(2m) - 1, m \in \mathbb{Z} \\
+    P = 6(2m + 1) - 1, m \in \mathbb{Z}
+  \end{cases} \Longrightarrow \begin{cases}
+    P = 12m - 1, m \in \mathbb{Z} \\
+    P = 12m + 5, m \in \mathbb{Z}
+  \end{cases}
+\]
+
+Now we have four equations that represent every possible prime. So, if we square these equations, we can show that every prime squared is one more than a multiple of 24.
+
+\[
+    \begin{cases}
+        P^2 = (12m + 1)^2 \\
+        P^2 = (12m + 7)^2 \\
+        P^2 = (12m - 1)^2 \\
+        P^2 = (12m + 5)^2
+    \end{cases} \Longrightarrow \begin{cases}
+        P^2 = 144m^2 + 24m + 1 \\
+        P^2 = 144m^2 168m + 49 \\
+        P^2 = 144m^2 - 24m + 1 \\
+        P^2 = 144m^2 + 120m + 25
+    \end{cases} \Longrightarrow \begin{cases}
+        P^2 = 24(6m^2 + m) + 1 \\
+        P^2 = 24(6m^2 + 7m + 2) + 1 \\
+        P^2 = 24(6m^2 - m) + 1 \\
+        P^2 = 24(6m^2 + 5m + 1) + 1
+    \end{cases}
+\]
+
+Therefore, the square of every prime number is one more than a multiple of 24. 
+
+Q.E.D.
+
+\subsection*{Proof 2:}
+
+This proof will come to the same conclusion but relies less on algebra and more on observations and patterns. By stating that the square of every prime number is one more than a multiple of 24, we also imply that one less than every prime squared is a multiple of 24.
+
+\[P^2 - 1 = 24k, k \in \mathbb{Z}\]
+
+This expression may seem familiar to the reader, not because of its meaning with prime numbers, but because it fits the form of the difference of two squares. This allows us to rewrite the expression.
+
+\[(P + 1)(P - 1)\]
+
+Now we have three integers to consider: \(P - 1\), \(P\), and \(P + 1\). These numbers obviously fall directly next to each other because they are separated by one. We know that every other number is a multiple of 2. This number cannot be P because P has no factors, so P - 1 and P + 1 are both even. From this, we know that our expression is a multiple of 4.
+
+\[(P + 1)(P - 1) = 4m, m \in \mathbb{Z}\]
+
+We also know that every other even number is a multiple of 4. It does not matter whether P - 1 or P + 1 is a multiple of four, but this allows us to now state that our expression is a multiple of 8. 
+
+\[(P + 1)(P - 1) = 8k, k \in \mathbb{Z}\]
+
+The final piece of the puzzle relies on multiples of 3. Out of three numbers in a row, one of the numbers must be a multiple of 3. This number cannot be P because then P would not be prime, so either P - 1 or P + 1 is a multiple of three. So, besides being a multiple of 8, our expression must also be a multiple of 3 which lands us at our conclusion.
+
+\[P^2 - 1 = 24k, k \in \mathbb{Z}\]
+
+The square of any prime number is one greater than a multiple of 24.
+
+Q.E.D.

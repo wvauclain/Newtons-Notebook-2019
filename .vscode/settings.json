@@ -1,0 +1,4 @@
+{
+  "latex-workshop.chktex.enabled": true,
+  "editor.wordWrap": "bounded"
+}

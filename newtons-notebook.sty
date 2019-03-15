@@ -1,0 +1,42 @@
+\ProvidesPackage{newtons-notebook}[Newton's Notebook Macros]
+
+% Require all packages needed for the macros
+\RequirePackage{setspace}
+\RequirePackage{afterpage}
+\RequirePackage{wallpaper}
+
+% Set the page geometry
+\RequirePackage[letterpaper, margin=1in]{geometry}
+
+% Displays a header in a uniform format
+\newcommand{\nnarticleheader}[2]{
+    \ThisCenterWallPaper{1}{\currentTitleWallpaper}
+    \begin{spacing}{2}
+        \centering
+        {\Huge \textbf{#1}} \\
+        {\Large #2}
+    \end{spacing}
+    \vspace{0.5in}
+}
+
+% Creates a blank page
+\newcommand\nnblankpage{
+    \newpage
+    \null
+    \thispagestyle{empty}
+    \newpage
+}
+
+% Creates a page filled with the profided image
+\newcommand{\nnimagepage}[1]{
+    \newpage
+    \null
+    \ThisCenterWallPaper{1}{#1}
+    \thispagestyle{empty}
+    \newpage
+}
+
+% Sets the background of the document to the given image
+\newcommand{\nnwallpaper}[1]{
+    \CenterWallPaper{1}{#1}
+}
