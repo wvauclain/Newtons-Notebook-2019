@@ -1,0 +1,28 @@
+\nnarticleheader{The Infinitude of Primes}{Stephen Patrylak, Faculty}
+
+Most texts present Euclid’s original proof to show that the prime numbers are, in fact, infinite. It is a proof by contradiction, and goes like this:
+
+Suppose the primes are limited to \(p_1, p_2, \ldots, p_k\).
+\[\text{Let } N = \prod_i^k(p_i+1)\]
+\(N\) is larger than any of the \(p_i\)’s; as it is not one of the primes, it must be composite. Accordingly, \(N\) has a prime divisor, \(q\), which is one of the \(p_i\)’s. Since \(q\) divides \(N\) and \(N – 1\), it must also divide \(N – (N – 1)\) or 1. Clearly, there is no such \(q\) --– an impossibility, leading us to conclude that \(p_1, p_2, \ldots, p_k\) are not all of the primes. Since we cannot list all the primes, they are infinite.
+
+Before we state the alternate proof explicitly, let’s agree on a few intermediate results.
+\begin{enumerate}
+    \item All primes \(p > 2\) can be partitioned into two families:
+    \begin{enumerate}
+        \item those of the form \(4n + 1\),
+        \item or those of the form \(4n + 3\).
+    \end{enumerate}
+    \item Since the primes are infinite, one of these two families of primes is infinite. (Although both are actually infinite, it will suffice for the purpose of this paper to show that the \(4n + 3\) primes are such).
+    \item Suppose an integer \(a \equiv 1 \pmod{4} \) and \(b \equiv 1 \pmod{4} \), then \(ab \equiv 1 \pmod{4} \) --– proving this is trivial, using basic number theory. The contrapositive tells us that if \(ab\) is not congruent to \(1 \pmod{4}\), then either \(a\) or \(b\) (or both) is (are) not congruent \(1 \pmod{4}\).
+\end{enumerate} 
+
+Now --- the proof. Suppose there are only finite many primes of the form \(4n + 3\). We can then list them as \(p_1, p_2, \ldots, p_k\).
+\[\text{Let } N = 4\prod_1^k(p_i)= 4(p_1p_2\ldots{}p_k) + 3\] Note that \(N\) is of the form \(4n + 3\), i.e. \(N \equiv 3 \pmod{4}\). Also, as \(N\) is greater than any of the \(p_i\)’s, it must be composite. Accordingly, \(N\) has a prime divisor, \(q\).
+
+The prime divisor, \(q\), of \(N\) cannot be 2 (as \(N\) is odd). The prime divisor, \(q\), of \(N\) cannot be any of the \(p_i\)’s. If \(q\) (having the form \(4n +3\)) were a divisor of \(N\), it would also have to divide \(N + 1\) (as the latter is congruent to 0 mod 4). Since \(q\) divides \(N + 1\) and \(N\), it must also divide \((N + 1) – N\) or 1. Clearly, there is no such \(q\) – an impossibility.  
+
+Since \(q\) cannot be of the form \(4n +3\), it must be of the form \(4n + 1\), the only other possibility. But this is also impossible. From intermediate result 3 above, since \(N\) is not congruent to 1 mod 4, at least one of its factors must not be congruent to 1 mod 4. 
+
+Yet, the prime factorization of \(N\) cannot contain a \(4n +3\) prime. So, all of its prime factors have the form \(4n + 1\). But if that were true, \(N\) would also be of that form (again by intermediate result 3) –- a contradiction, leading us to conclude the \(4n +3\) primes and, in fact, the primes are infinite.
+

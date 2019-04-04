@@ -1,0 +1,59 @@
+\nnarticleheader{Ordered Triples Adding to 20}{Stephen Patrylak, Faculty}
+
+The answer to this question is amazingly simple; it is \(\binom{20}{3}\) or 1140. Demonstrating the answer’s validity is not as straightforward, however, and involves some neat mathematics. This question is often asked in math competitions, allowing very limited time to find a solution. Consequently, a brute force approach of enumerating appropriate triples will certainly not work. Nonetheless, let’s start trying to answer the question in that manner to gain a bit of insight into an explanation of the solution.
+
+The ordered triples positive integers that are \(\leq 20\) will necessarily consist of the union of such triples that satisfy the equalities \(a + b + c = 3\) or \(a + b + c = 4\) or \ldots through \(a + b + c = 20\). Consider the first of these, i.e. \(a + b + c = 3\). Only one such triple works --- \((1,1,1)\).  For \(a + b + c = 4\), there are three answers --- \((1,1,2)\); \((1,2,1)\) and \((2,1,1)\). When we consider \(a + b + c = 5\), we may start to see a pattern (yes? Not yet?). \((1,1,3)\) and \((1,2,2)\) each have three permutations respectively that work. Thus, when considering this case, there are six such triples. Let’s try one more to discern the pattern a bit more clearly. Suppose that \(a + b + c = 6\). We can conjecture that there are 10 triples that work (see a pattern now?). They are: \((1,1,4)\) –-- 3 permutations, \((2,2,2,)\), and \((3,2,1)\) --– with 6 permutations. Thus, we see 10 triples, as predicted. Just to be sure, let’s try \(a + b + c = 7\). If we get 15, perhaps we can start to posit a general solution\ldots. Well, \((1,1,5)\) accounts for 3 permuted triples; \((1,2,4)\) –-- gives 6 more; \((1,3,3)\) --– 3 more and \((2,2,3)\) rounds out the field with the final 3 --– total of 15.
+
+What does all of this suggest? Consider the table below. The number of ordered triples solving the increasing \(d\)’s seems to form a triangular sequence. If this can be shown to be true, then, when \(d = 8\) through 20, the number of solutions are easy to predict. The \(n\)th triangular number is given as \(n * (n+1) * \nicefrac{1}{2}\) (N.B. this is \(\binom{n+1}{2}\)). So, for example, the number of ordered pairs that add to 20 is the 18th triangular number, which equals \(18 * 19 / 2\) or 171. Interestingly enough, when \(d = 20\), to calculate the number of ordered triples of positive integers that add to no more than 20, we need to sum the first 18 triangular numbers. Brute force yields a result of 1140, which is \(\binom{20}{3}\). Now to show this last result\ldots.
+
+\begin{center}
+\begin{tabular}{c c c}
+\toprule
+\(a + b + c = d\) & \# of ordered triples solutions & Cumulative \# of ordered triples solutions \\
+\midrule
+\(d = 3\) & 1 & 1 \\
+4 & 3 & 4 \\
+5 & 6 & 10 \\
+6 & 10 & 20 \\
+7 & 15 & 35 \\
+\ldots & \ldots & \ldots \\
+19 & 153 & 969 \\
+20 & 171 & 1140 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+We now need to show that the sum of the first 18 triangular numbers is \(\binom{20}{3}\). We can do this by proving the general case, i.e.\ that the sum of the first n triangular numbers is, in fact, \(\binom{n+2}{3}\) and then applying the formula to sum the first 18.
+
+The nth triangular number is given as
+\[n * (n+1) * \frac{1}{2} \Rightarrow .5n^2 + .5n\]
+To sum the first n such numbers, let’s consider
+\[\sum_{i=1}^{n}(.5i^2 + .5i)\]
+This equals
+\[= .5\sum_{i=1}^{n}(i^2) + .5\sum_{i=1}^{n}(i)\]
+In turn, these addends are
+\[= .5\frac{n(n + 1)(2n + 1)}{6} + .5\frac{n(n + 1)}{2}\]
+Combining and simplifying, we have
+\[\frac{n(n+1)(2n+1)}{12} + \frac{n(n+1)}{4} = \frac{n(n+1)(2n+1)+3n(n+1)}{12} = \frac{n(n+1)(2n+1+3)}{12}\]
+This, in turn, is
+\[\frac{n(n+1)(2n+4)}{12} = \frac{2n(n+1)(n+2)}{12} = \frac{n(n+1)(n+2)}{6} = \binom{n+2}{3}\]
+Note: this amount is often expressed by its equivalent form, \(\nicefrac{n^3}{6} + \nicefrac{n^2}{2} - \nicefrac{n}{3}\). And, as stated, the number of ordered triples satisfying the inequality \(a + b + c \leq 20\) is, accordingly, \(\binom{20}{3}\) = 1140. 
+
+To complete the proof of all the assertions made herein above, we must show that the number of ordered triples that add to a specific \(d\) is identically the \((d - 2)\)th triangular number, \(\binom{d-1}{2}\). We need to delve into Combinatorics to do so. In that field of study, the problem presented is usually dubbed “stars and bars.” Suppose you have \(d\) stars to be placed into \(k\) bins, and each bin must contain at least one star. The stars are indistinguishable, but the bins lie side-by-side and are numbered 1 through \(k\). If we think of the \(k\) bins as \(k\)-tuples of positive numbers equaling the number of indistinguishable stars in each bin, these can be thought of as distinct ordered \(k\)-tuples of positive integers adding to \(d\). In our case, \(k = 3\) as we are contemplating ordered triples of positive integers adding to \(d\)’s --- ranging from 3 to 20.
+
+Let’s examine the case with \(d = 7\). In the table above we see that there are 15 triples satisfying the conditions of the problem. Instead of enumerating them, let’s use Combinatorics, and in the process discover a formula that works for all of our \(d\)’s. Consider 7 stars as shown --- \(\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar \). Our task now is to divide the seven stars into 3 bins by placing bars between any 2 consecutive stars. We will need to place only two such bars to divide the stars into three groups. The number of stars in each bin will then simulate ordered triples of positive numbers adding to \(d\). And, if we can count all of the possible such triples, we will have answered the question posed just above.
+
+Well, given there are seven stars, we know there are 6 positions (between stars) in which the 2 bars can be placed. As an example suppose we place the bars in the following way: \(\bigstar\bigstar\bigstar\bigstar/\bigstar/\bigstar\bigstar \). This leads to the triple (4,1,2), which adds to 7. How many ways can this be done? This is tantamount to picking 2 positions out of 6 to place bars. The resulting configurations are distinct only by the number of stars in each bin.  The answer, of course, is \(\binom{6}{2}\) or 15 – exactly as the table predicts. Even more importantly for any \(d\), the number of ordered triples of positive integers that add to d is exactly what we set out to show --- \(\binom{d-1}{2}\) --- the \((d - 2)\)th triangular number. Q.E.D.
+
+What if we changed the problem just a bit? Instead of ordered triples of positive integers, let’s admit triples of non-negative integers, i.e. zero’s are to be considered. How does that affect our solution…? Well, \(a + b + c = 0\) or \(a + b + c = 1\) or \(a + b + c = 2\) are added to our table. Again, let’s presume that the number of triples solving each increasing \(d\) from 0 through 20 equals a corresponding triangular number. The cumulative number of solutions solving the inequality \(a + b + c \leq 20\) involves summing the first 21 triangular numbers, which is \(\binom{23}{3}\) = 1771. 
+
+What is left to show is that the number of triples solving each increasing \(d\) from 0 through 20 equals a corresponding triangular number. Again, we turn to Combinatorics for the result. Consider the same 7 stars as shown --- \(\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar \). We need to place 2 bars to form three bins. This time, however, consecutive bars present no problem; in that case, we would have a bin with a zero component. For example, considering \(\bigstar\bigstar\bigstar\bigstar//\bigstar\bigstar\bigstar \) gives rise to the triple (4,0,3), which of course adds to 7. \(\bigstar/\bigstar\bigstar\bigstar/\bigstar\bigstar\bigstar \) gives rise to the triple (1,3,3) – also sums to 7.
+
+The number of possible arrangements is tantamount to picking 2 (one for each bar) positions out of 9 (one for each of the 7 stars plus the 2 bars) to place the bars. Accordingly, the number of such arrangements is, of course, \(\binom{9}{2} = 36\), which is identically the 8th triangular number. In general, solving \(a + b + c = d\), would involve \(\binom{d+2}{2}\) ordered triples of non-negative integers – the \((d + 1)\)th triangular number. Q.E.D.
+
+
+\begin{center}
+FIX THE FORMATTING ON THIS NEXT SECTION
+\end{center}
+
+ASIDE: How many ordered 4-tuples of positive integers satisfy the inequality \(a + b + c + d \leq 100\)? Justify your solution by methods discerned above.                                                                                  Answer is 3,921,225 

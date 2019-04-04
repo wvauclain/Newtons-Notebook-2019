@@ -2,12 +2,10 @@
 
 The study of prime numbers, a specific yet important branch of study in number theory, continues as a researched topic dating back from 2000 years ago and holds itself in increasing importance during the last century and into the future. Simply put, all of the modern world’s cryptography is based in our collective understanding of primes and their behavior. 
 
-\section*{What is a Prime?}
+\subsubsection*{What is a Prime?}
 
 A prime number is a natural number larger than 1 which cannot be expressed as the product of two smaller natural numbers. 
-
 \[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59 ,61, 67, 71, 73, 79, \ldots \]
-
 They are effectively the analog of “atomic elements” of natural number multiplication. This comes from the one of the first theorems of primes.
 
 \textbf{Fundamental theorem of arithmetic:}  (Euclid, \(\approx 300\) BCE) Every natural number larger than 1 can be expressed as a product of one or more primes. This product is unique up to rearrangement.
@@ -29,7 +27,7 @@ Short and elegant, this theorem explains that there are infinitely many primes, 
 
 The whole business of showing the behavior of primes is not a purely academic concern, and these days, internet and banking security underlies mathematicians’ beliefs of the randomness of primes.  
 
-\section*{Diffie-Hellman key exchange}
+\subsubsection*{Diffie-Hellman key exchange}
 
 The real-world application is the Diffie-Hellman key exchange (1976), which is a secure way to allow two strangers (typically named Alice and Bob) to share a secret, even when their communication is completely open to eavesdroppers. This algorithm, combined with similar algorithms like the RSA, is often used in internet security protocols. 
 
@@ -40,24 +38,21 @@ The (simplified) Diffie-Hellman protocol behaves as follows:
 \begin{enumerate}
     \item Alice and Bob agree (over the insecure network) on a large prime \(p\).
     \item Alice picks a key \(a\), which is a prime, “locks” \(g\) by computing \(g^a \pmod{p} \), and sends \(g^a \pmod{p} \) to Bob.
-    \item Bob picks key \(b\), “double locks” \(g^a \pmod{p}\) by computing \((g^a)^b = g^{ab} \pmod{p} \), and sends \(g^{ab} \pmod{p} \) back to Alice.
+    \item Bob picks key \(b\), “double locks” \(g^a \pmod{p}\) by computing \({(g^a)}^b = g^{ab} \pmod{p} \), and sends \(g^{ab} \pmod{p} \) back to Alice.
     \item Alice takes the \(a\)th root of \(g^{ab} \pmod{p} \) to create \(g^b \pmod{p} \), to send back to Bob.
     \item Bob takes the \(b\)th root of \(g^b \pmod{p} \) to create \(g^b \pmod{p}\), to recover \(g \pmod{p}\).
 \end{enumerate} 
 
 This works because:
-
-\[g^a \pmod{p})^b \pmod{p} = g^{ab} \pmod{p}\]
-\[(g^b \pmod{p})^a \pmod{p} = g^{ba} \pmod{p}\]
+\[{(g^a \pmod{p})}^b \pmod{p} = g^{ab} \pmod{p}\]
+\[{(g^b \pmod{p})}^a \pmod{p} = g^{ba} \pmod{p}\]
 
 Even though the algorithm appears secure, we have no explicit proof. In fact, this issue is related to a \$1 million prize problem issued by the Clay Mathematics Institute: \(P \neq NP\). Simply put this equation asks: Is it possible for every solved problem whose answer is able to be quickly checked by a computer, to also be quickly solved? If this is true, then it is equally easy to decipher which keys Alice and Bob used and refute many other assumptions we formulated in the greater context of math.
 
 The study of primes intertwines with other areas in mathematics to help us model equations to predict their location. Using the \textbf{Prime Number Theorem} (Hadamard \& Poussin, 1896), we can predict their distribution in relation to number of primes less than N. Extremely complex in nature yet visually simple, the equation
-
 \[
 \lim_{x\to\infty} \frac{\pi(x)}{[\frac{x}{\log{x}}]} = 1    
 \]
-
 builds on the teachings of Bernhard Riemann, and is accurate to -1.8\% at the \(10^3\) \(x\) or \(N\). This equation is generally regarded as the greatest single achievement in number theory, and with primes’ locations increasing relevance and human mathematical curiosity ever craving for answers, the Prime Number Theorem provides immense value. 
 
 Every day new primes are being discovered, and more and more research is poured into this topic. The truly interesting portion of the whole endeavour lies in that humans have known about primes for centuries, yet we still know so little about them. 

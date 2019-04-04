@@ -49,10 +49,10 @@ Now we have four equations that represent every possible prime. So, if we square
 
 \[
     \begin{cases}
-        P^2 = (12m + 1)^2 \\
-        P^2 = (12m + 7)^2 \\
-        P^2 = (12m - 1)^2 \\
-        P^2 = (12m + 5)^2
+        P^2 = {(12m + 1)}^2 \\
+        P^2 = {(12m + 7)}^2 \\
+        P^2 = {(12m - 1)}^2 \\
+        P^2 = {(12m + 5)}^2
     \end{cases} \Longrightarrow \begin{cases}
         P^2 = 144m^2 + 24m + 1 \\
         P^2 = 144m^2 168m + 49 \\
@@ -80,15 +80,15 @@ This expression may seem familiar to the reader, not because of its meaning with
 
 \[(P + 1)(P - 1)\]
 
-Now we have three integers to consider: \(P - 1\), \(P\), and \(P + 1\). These numbers obviously fall directly next to each other because they are separated by one. We know that every other number is a multiple of 2. This number cannot be P because P has no factors, so P - 1 and P + 1 are both even. From this, we know that our expression is a multiple of 4.
+Now we have three integers to consider: \(P - 1\), \(P\), and \(P + 1\). These numbers obviously fall directly next to each other because they are separated by one. We know that every other number is a multiple of 2. This number cannot be \(P\) because \(P\) has no factors, so \(P - 1\) and \(P + 1\) are both even. From this, we know that our expression is a multiple of 4.
 
 \[(P + 1)(P - 1) = 4m, m \in \mathbb{Z}\]
 
-We also know that every other even number is a multiple of 4. It does not matter whether P - 1 or P + 1 is a multiple of four, but this allows us to now state that our expression is a multiple of 8. 
+We also know that every other even number is a multiple of 4. It does not matter whether \(P - 1\) or \(P + 1\) is a multiple of four, but this allows us to now state that our expression is a multiple of 8. 
 
 \[(P + 1)(P - 1) = 8k, k \in \mathbb{Z}\]
 
-The final piece of the puzzle relies on multiples of 3. Out of three numbers in a row, one of the numbers must be a multiple of 3. This number cannot be P because then P would not be prime, so either P - 1 or P + 1 is a multiple of three. So, besides being a multiple of 8, our expression must also be a multiple of 3 which lands us at our conclusion.
+The final piece of the puzzle relies on multiples of 3. Out of three numbers in a row, one of the numbers must be a multiple of 3. This number cannot be \(P\) because then \(P\) would not be prime, so either \(P - 1\) or \(P + 1\) is a multiple of three. So, besides being a multiple of 8, our expression must also be a multiple of 3 which lands us at our conclusion.
 
 \[P^2 - 1 = 24k, k \in \mathbb{Z}\]
 
