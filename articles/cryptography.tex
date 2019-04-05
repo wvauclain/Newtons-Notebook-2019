@@ -7,9 +7,11 @@ Data encryption is basically the digital version of a secret code, the key to wh
 
 Imagine you and your friends want to keep a ledger of all of each other’s transactions. As a way to verify each transaction, you decide that each party must sign the ledger. This seems pretty secure, but what is stopping one of your friends from copying everybody’s signature and forging transactions? In the digital world, this would be much easier, as a “signature” would just be a string of bits that could be copied by a computer. To solve this, you and your friends invent a scheme called “asymmetric” or “public key” encryption, which relies on  private and public keys. Everybody has access to everyone else’s public keys, but each individual keeps their private key a secret. Whenever you sign the ledger, you use your private key to generate a signature unique to that transaction, one that cannot be copied anywhere else. Your corresponding public key can be used for verification by combining it with the transaction and the generated signature. 
 
-\begin{center}
-    INSERT FIGURE HERE
-\end{center}
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.25]{assets/cryptography.png}
+\end{figure}
+
 
 In the real world, this concept is not just limited to transactions, but is used for most forms of digital communication. One function used to generate your so-called digital “signature” is called a Hash Function. The SHA-256 Hash Function, developed by the NSA in 2001, is the one used by most web browsers to protect your personal information. As the name suggests, it encrypts blocks of data into 256-bit chunks (strings of 256 ones or zeros). The SHA function is what is called a “one-way compression” function. This means that generating a signature from an input results in an output that cannot feasibly be reverse-engineered back into the original message. Part of what makes SHA so difficult to reverse-engineer is that SHA functions work using bitwise functions. These are functions that, instead of working with the original message, convert the message to bits and manipulate the ones and zeros individually, resulting in a high level of encryption that does not fall prey to common decryption schemes like counting letter frequency.
 

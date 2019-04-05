@@ -1,11 +1,19 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{units}
 \usepackage{wallpaper}
 \usepackage{newtons-notebook}
 \usepackage{booktabs}
+\usepackage{float}
+\usepackage{xurl}
+\usepackage{listings}
+\usepackage{tocloft}
+
+\renewcommand{\cftpartfont}{\Large\bfseries}
+\renewcommand{\cftsecfont}{\normalsize}
 
 \setlength{\parskip}{\baselineskip}
 
@@ -16,8 +24,16 @@
 \addtolength{\textheight}{0in}
 
 \begin{document}
+\setcounter{tocdepth}{1}
+
+\tableofcontents
+
+\renewcommand{\baselinestretch}{1.5}
+
+\newpage
 
 % Begin the pure math section
+\addcontentsline{toc}{part}{Pure Math}
 \nnimagepage{Pure_Math_Title_Page.pdf}
 
 \nnwallpaper{Pure_Math_Border.pdf}
@@ -47,6 +63,7 @@
 \nnwallpaper{Pure_Math_Border.pdf}
 \def\currentTitleWallpaper{Pure_Math_Border_Title.pdf}
 
+\addcontentsline{toc}{part}{Applied Math}
 \nnimagepage{Applied_Math_Title_Page.pdf}
 
 \input{articles/math-modeling.tex}

@@ -1,4 +1,4 @@
-\nnarticleheader{Math Modeling Competition}{Mickey Fairorth '19, Nikhil Chakraborty '19, Alexander Greer '20}
+\nnarticleheader{Math Modeling Competition Submission}{Mickey~Fairorth~'19, Nikhil~Chakraborty~'19, Alexander~Greer~'20}
 
 This past March, three Haverford students were given 14 straight hours and the task of using mathematics to model drug use trends in the United States. These three students, Nikhil Chakraborty, Alexander Greer, and Mickey Fairorth, participated in a nationwide challenge called the Mathworks Math Modeling (M3) Challenge. This challenge is open to all high school juniors and seniors and aims to encourage students to work as a team to tackle real world problems. Topics in years past have ranged from climate change and its effects on sea levels to food insecurity around the world. This year’s challenge required the students to analyze an issue that plagues the nation: substance abuse and addiction.
 
@@ -6,7 +6,332 @@ The problem contained three separate parts. The first question focused on high s
 
 At the end of the 14 hours, the students had created a nearly 20 page report that included an executive summary, graphs and charts, and a Python script that was used to fit trends. Below is the executive summary and their answer to the first question.
 
-\section{Test}
+\section*{Executive Summary}
 
+The permeation of substance abuse into the global culture, often leading to detrimental social and economic consequences, is a major cause for concern. Physiological effects (mood changes, health risks, impaired cognitive function) are of particular concern, as individuals’ lack of awareness or ability often comes at the price of lessened societal contribution. In order to better gauge the statistical significance of substance abuse, several models were developed.
+
+First, data regarding the usage of electronic cigarettes was collected. Users were categorized by age range (either adolescent or adult) and severity (either exposure or consistent usage). In order to develop a model to predict the presence of e-cigarette usage over the next 10 years, trendlines were fitted to each of the above categories predicting \% users by 2028. Data regarding traditional cigarette usage was then collected and analyzed through similar means. It was predicted that e-cigarette usage would rise significantly, especially in adolescents, while cigarette usage would consistently decline. Based on data provided [1], it is believed that the e-cigarette model represents the initial rise and adoption of a substance, which will inevitably be overturned by legislation and public opinion, leading to an equally significant decline as demonstrated by the cigarette model.
+
+In order to predict the likelihood that specific individuals will become addicted to substances, a model was developed taking into account multiple characteristics: socioeconomic status, mental health, personality traits, and familial use. Data involving adjusted odds ratios for each category were researched and collected involving the abuse of four substances: nicotine, marijuana, alcohol, and unprescribed opiates. Reference vectors based on the lowest-ranked division in each category were calculated for each substance. Finally, sample demographics for a class of 300 high school seniors were calculated by multiplying each reference vector by the corresponding odds ratios. 
+In order to develop a metric for the impact of substance abuse, several criteria were outlined related to the definitions of substance addiction and dependence based on reliably sourced data. Then, data relating to the financial and non-financial characteristics exhibited by substance users were researched and collected. These data were analyzed via the extensiveness of influence to determine the most harmful and impactful substance.
+
+\section*{Global Assumptions}
+\textbf{G.1} A year has 365 days for ease of calculation.
+
+\section*{Global Definitions}
+
+\textbf{Addiction:} A brain disorder characterized by compulsive engagement in rewarding stimuli despite adverse consequences.
+\newline
+\textbf{Drug:} A drug is any substance that, when inhaled, injected, smoked, consumed, absorbed via a patch on the skin, or dissolved under the tongue causes a physiological (and often psychological) change in the body.
+
+\section*{Part 1: Darth Vapor}
+\setcounter{section}{1}
+\subsection{Restatement of problem}
+We are asked to develop a model predicting the changes in the prevalence of nicotine consumption through vaping (inhalation of an aerosol created by vaporizing a liquid) for the next 10 years; we are also asked to create a model for the consumption of nicotine through traditional cigarettes and to compare it to the model created for vaping.
+
+\subsection{Local Assumptions}
+\begin{enumerate}
+    \item The usage of “vapes” is equivalent to the usage of “e-cigarettes.”
+    \begin{enumerate}
+        \item \textit{Justification:} Data collected regarding products under either name was shown to be roughly equivalent (error likely arose surrounding misunderstanding of terminology by the survey respondents). Also, the FDA recognizes “vapes,” “vaporizers,” “vape pens,” “hookah pens,” “electronic cigarettes (e-cigarettes or e-cigs),” and “e-pipes” as all being functionally equivalent in terms of nicotine delivery [2].
+    \end{enumerate}
+    \item When referring to data collected regarding nicotine consumption, the term “adolescents” can be used to describe respondents in both middle or high school below the age of 18.
+    \begin{enumerate}
+        \item \textit{Justification:} Data collected in these age brackets is either split between the two educational levels or surveyed solely as the blanket category. It was found that, when combining the separate data surveys, the quantities closely paralleled those of the blanket surveys, and so the combined data set was used.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Variables \& Terminology}
+
+\begin{center}
+    \begin{tabular}{p{1.2in} p{4in} p{.5in}}
+        \toprule
+        \textbf{Symbol/Term} & \textbf{Definition} & \textbf{Units} \\
+        \midrule
+        “p30D” & Abbreviated form of “past 30 days.” Consumption of substances within this time range is used as a fair metric to judge consistent drug use. & N/A \\
+        \midrule
+        “Ever Used” & Abbreviated term for survey respondents who replied as having consumed the surveyed substance at any point throughout their lives. In general, “Ever Used” implies any form of prior exposure to the substance. & N/A \\
+        \midrule
+        t & Used in equations to represent time as an input to determine \% respondents & Time (years) \\
+        \midrule
+        \(F_x(t)\) & A function of time (t) relating to \% respondents admitting to nicotine consumption ``x'' category. & \% \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\subsection{Solution \& Results}
+
+Nicotine consumption per capita was divided into two categories: Adolescents and Adults. Data regarding high school nicotine consumption was provided [3], but data for younger adolescents and adults had to be found. \textbf{Tables 1. \& 2.} include nicotine consumption and exposure data from varying sources.
+
+\subsubsection*{Table 1}
+
+\begin{center}
+    \begin{tabular}{p{1in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in}}
+        \toprule
+        \multicolumn{10}{c}{Percentage of Adolescents and Adults who}\\
+        \multicolumn{10}{c}{Consistently Use or Have Ever Used E-Cigarettes}\\    
+        \midrule
+        Year & 2010 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 \\
+        \midrule
+        Adolescents (p30D) & -----* & \colorbox{pink}{1.50\%} & \colorbox{pink}{2.80\%} & \colorbox{pink}{4.50\%} & \colorbox{pink}{13.4\%} & \colorbox{pink}{16\%} & \colorbox{pink}{11.3\%} & \colorbox{pink}{11.7\%} & \colorbox{pink}{20.8\%} \\
+        Adolescents (Ever Used) & -----* & \colorbox{pink}{3.1\%} & \colorbox{pink}{6.6\%} & \colorbox{pink}{7.7\%} & \colorbox{pink}{19.1\%} & \colorbox{pink}{26.6\%}  & \colorbox{pink}{22.6\%} & \colorbox{pink}{21.1\%} & \colorbox{yellow}{39.7\%} \\
+        Adult (p30D) & \colorbox{green}{1.00\%} & \colorbox{yellow}{1.50\%} & \colorbox{yellow}{1.30\%} & \colorbox{green}{2.6\%} & \colorbox{CornflowerBlue}{3.70\%} & \colorbox{green}{3.5\%} & \colorbox{Orchid}{3.2\%} & -----\textdagger{} & -----\textdagger{} \\
+        Adult (Ever~Used) & \colorbox{green}{3.30\%} & \colorbox{yellow}{6.20\%} & \colorbox{yellow}{8.10\%} & \colorbox{green}{8.5\%} & \colorbox{CornflowerBlue}{12.60\%} & \colorbox{green}{13.90\%}  & \colorbox{Orchid}{15.30\%} & -----\textdagger{} & -----\textdagger{} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+%
+* Data Not Recorded
+\newline
+\textdagger{} Data Unpublished
+\newline
+\colorbox{pink}{--} \url{https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html}
+\newline
+\colorbox{yellow}{--} \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4512831/}
+\newline
+\colorbox{green}{--} \url{http://tobaccopolicycenter.org/wp-content/uploads/2017/11/304.pdf}
+\newline
+\colorbox{CornflowerBlue}{--} \url{https://www.cdc.gov/nchs/data/databriefs/db217.pdf}
+\newline
+\colorbox{Orchid}{--} \url{https://jamanetwork.com/journals/jama/fullarticle/2681181}
+
+\subsubsection*{Table 2}
+
+\begin{center}
+    \begin{tabular}{p{1in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in} p{0.45in}}
+        \toprule
+        \multicolumn{10}{c}{Percentage of Adolescents and Adults}\\
+        \multicolumn{10}{c}{who Consistently Use Nicotine Cigarettes}\\    
+        \midrule
+        Year & 2010 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 \\
+        \midrule
+        Adolescents & -----* & \colorbox{pink}{10.50\%} & \colorbox{pink}{9.30\%} & \colorbox{pink}{8.20\%} & \colorbox{pink}{6.10\%} & \colorbox{pink}{6.00\%} & \colorbox{pink}{5.80\%} & \colorbox{pink}{5.60\%} & -----* \\
+        Adults & -----* & \colorbox{yellow}{19.00\%} & \colorbox{green}{18.10\%} & \colorbox{green}{17.80\%} & \colorbox{CornflowerBlue}{16.80\%} & \colorbox{CornflowerBlue}{15.10\%} & \colorbox{Orchid}{15.50\%} & \colorbox{Emerald}{14.0\%} & -----* \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+%
+* Data Not Found, Not Recorded, or Unpublished
+\newline
+\colorbox{pink}{--} \url{https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/data/index.html}
+\newline
+\colorbox{yellow}{--} \url{https://www.medscape.com/viewarticle/774787_1}
+\newline
+\colorbox{green}{--} \url{https://www.cdc.gov/mmwr/preview/mmwrhtml/mm6302a2.htm}
+\newline
+\colorbox{CornflowerBlue}{--} \url{https://www.nytimes.com/2016/05/26/us/cdc-survey-shows-drop-in-cigarette-smoking-by-adults-in-2015.html}
+\newline
+\colorbox{Orchid}{--} \url{https://www.cdc.gov/tobacco/campaign/tips/resources/data/cigarette-smoking-in-united-states.html}
+\newline
+\colorbox{Emerald}{--} \url{https://www.cdc.gov/tobacco/data_statistics/fact_sheets/adult_data/cig_smoking/index.htm}
+
+Next, data from each category relating to e-cigarette consumption (\textbf{Table 1}) was plotted against the respective year of collection. Each data set exhibited a visible upwards and decreasing trend (i.e.\ positive first derivative and negative second derivative), and so a logarithmic equation was chosen as a regression template. This equation type was chosen because of both its optimized correlation to the sample data and its end behavior. Other types (polynomial, exponential, and logistic) were considered but did not adequately or accurately predict the future growth of the data represented.
+
+Regressions for each data set were calculated using Desmos and verified using a python script (\textbf{Appendix A}). The resulting logarithmic regression curves were plotted alongside the sample data, as seen in \textbf{Figure 1.} Explicit definitions for each regression are seen in \textbf{Eq. 1.–4.}
+
+\subsubsection*{Figure 1.}
+\begin{figure}[H]
+    \centering \includegraphics*[scale=1]{assets/math-modeling-figure-1.png}
+\end{figure}
+
+\subsubsection*{Equations}
+
+\begin{equation}
+    \text{\colorbox{Orchid}{--} } F_{teen\_e-cigs\_ever\_used}(t) = –390.356 + \log_{1.00813}(t + 23.9438)
+\end{equation}
+\[R^2 = 0.8336\]
+
+\begin{equation}
+    \text{\colorbox{Aquamarine}{--} } F_{teen\_e-cigs\_p30D}(t) = –31.8178 + \log_{1.05158}(t + 5.11625)
+\end{equation}
+\[R^2 = 0.7694\]
+
+\begin{equation}
+    \text{\colorbox{red}{--} } F_{adult\_e-cigs\_ever\_used}(t) = –170.08+ \log_{1.01856}(t + 24.33)
+\end{equation}
+\[R^2 = 0.9746\]
+
+\begin{equation}
+    \text{\colorbox{blue}{--} } F_{adult\_e-cigs\_p30D}(t) = –5.9169 + \log_{1.29184}(t + 5.65196)
+\end{equation}
+\[R^2 = 0.8145\]
+
+Based on this model, it is predicted that the percentages of respondents exposed to nicotine will be as follows: 30.6\% of teenagers (p30D), 71.1\% of teenagers (Ever Used), 6.4\% of adults (p30D), and 33.6\% of adults (Ever Used). Exact values for percentages throughout the next 10 years can be seen in \textbf{Table 3.}
+
+\subsubsection*{Table 3.}
+\begin{center}
+    \begin{tabular}{p{1in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in}}
+        \toprule
+        \multicolumn{11}{c}{Percentage of Adolescents and Adults}\\
+        \multicolumn{11}{c}{who Consistently Use Nicotine Cigarettes}\\    
+        \midrule
+        Year & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & 2026 & 2027 & 2028 \\
+        \midrule
+        Adolescents (p30D) & 20.8\% & 22.2\% & 23.5\% & 24.7\% & 25.8\% & 26.8\% & 27.9\% & 28.8\% & 29.7\% & \textbf{30.6\%} \\
+        Adolescents (Ever~Used) & 41.3\% & 44.9\% & 48.5\% & 52.0\% & 55.4\% & 58.7\% & 61.9\% & 65.0\% & 68.1\% & \textbf{71.1\%} \\
+        Adults (p30D) & 4.6\% & 4.8\% & 5.1\% & 5.3\% & 5.5\% & 5.7\% & 5.9\% & 6.1\% & 6.2\% & \textbf{6.4\%} \\
+        Adults (Ever Used) & 20.6\% & 22.2\% & 23.8\% & 25.3\% & 26.8\% & 28.2\% & 29.6\% & 31.0\% & 32.3\% & \textbf{33.6\%} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+Next, data relating to traditional cigarette consumption was analyzed using a similar method. This time a downwards and decreasing (i.e.\ negative first and second derivatives) trend was noted. Thus a negative exponential equation was chosen as a regression template. The resulting curves were plotted (\textbf{Figure 2}) and the explicit equation definitions noted (\textbf{Eq. 5. \& 6.}). (Note: the data collected for this model represents p30D data in both age categories).
+
+\subsubsection*{Figure 2.}
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.25]{assets/math-modeling-figure-2.png}
+\end{figure}
+
+\begin{equation}
+    \text{\colorbox{Green}{--} } F_{teen\_cigarettes}(t) = 10.3076e^{–(0.122805)t}
+\end{equation}
+\[R^2 = 0.9467\]
+
+\begin{equation}
+    \text{\colorbox{Yellow}{--} } F_{adult\_cigarettes}(t) = 19.1561e^{-(0.0490464)t}
+\end{equation}
+\[R^2 = 0.9253\]
+
+Based on this model, it is predicted that 1.1\% of teenagers and 7.9\% of adults will be consistent smokers by 2028. Exact values for percentages throughout the next 10 years can be seen in \textbf{Table 4}.
+
+\subsubsection*{Table 4.}
+\begin{center}
+    \begin{tabular}{p{1in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in}}
+        \toprule
+        \multicolumn{11}{c}{Percentage of Adolescents and Adults Predicted to Consistently}\\
+        \multicolumn{11}{c}{Use or to Ever Use Nicotine Cigarettes for the Next 10 Years}\\    
+        \midrule
+        Year & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & 2026 & 2027 & 2028 \\
+        \midrule
+        Adolescents & 3.4\% & 3.0\% & 2.7\% & 2.4\% & 2.1\% & 1.8\% & 1.6\% & 1.4\% & 1.3\% & \textbf{1.1\%} \\
+        Adults & 12.3\% & 11.7\% & 11.2\% & 10.6\% & 10.1\% & 9.6\% & 9.2\% & 8.7\% & 8.3\% & \textbf{7.9\%} \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\subsection{Conclusions}
+
+It is clear that the permeation of e-cigarettes as a nicotine-delivery method is as serious as described by the prompt. By 2028, this model predicts, nearly 1 out of every 3 adolescents will use them consistently, and more than 2 out of every 3 will have been exposed to e-cigarettes at some point in their lives. Thankfully, however, traditional cigarette usage is predicted to rapidly decline over the next decade, with less than 2\% of adolescents and less than 8\% of adults consistently using. While the usage of e-cigarettes may seem to be rising uncontrollably, the data provided in [1] implies that future government legislation and social pressures may help to prevent such devices from having too devastating an effect. While the scope of the above model is too small to take into account these factors, it is reasonable to assume their validity from general public opinion. 
+
+\subsection{Advantages and Disadvantages}
+
+Advantages
+\begin{itemize}
+    \item Simplicity
+    \begin{itemize}
+        \item The previous models assume the broadest definitions of “nicotine consumption” as possible and thus gives the best overview and generalization of the statistic.
+    \end{itemize}
+    \item Relative Accuracy
+    \begin{itemize}
+        \item For the computation chosen, our model incorporates the most reliable data as a source of admission of nicotine use (namely NYTS surveys and other sources related to federal regulatory agencies).
+    \end{itemize}
+\end{itemize}
+
+Disadvantages
+\begin{itemize}
+    \item Scope
+    \begin{itemize}
+        \item The data included in this model represents a small sample size of the factors that relate to nicotine use and abuse. Inconsistent social influences such as peer pressure and viral advertising may skew what would typically be a smooth trend.
+    \end{itemize}
+    \item Limited Domain
+    \begin{itemize}
+        \item Widespread research relating to the use of electronic cigarettes only began around 2010, and thus does not include consumption statistics from when the devices were first introduced to the market in the early 2000s.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Bibliography}
+[1] \url{https://m3challenge.siam.org/sites/default/files/uploads/Figure_Adult%20per%20capita%20cigaette%20consumption%20and%20major%20smoking%20and%20health%20events_US_1900_2012.pdf}
+\newline
+[2]  \url{https://m3challenge.siam.org/sites/default/files/uploads/high_school_vaping_data.xlsx}
+\newline
+[3] \url{https://www.fda.gov/tobaccoproducts/labeling/productsingredientscomponents/ucm456610.htm}
+\newline
+[4] \url{https://www.samhsa.gov/data/sites/default/files/NSDUH-DetTabs-2015/NSDUH-DetTabs-2015/NSDUH-DetTabs-2015.pdf}
+\newline
+[5] \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3474605/}
+\newline
+[6] \url{https://www.jstor.org/stable/pdf/3582044.pdf} \url{https://www.researchgate.net/profile/Darrel_Regier/publication/277548847_Comorbidity_of_mental_disorders_with_alcohol_and_other_drug_abuse_Results_from_the_Epidemiologic_Catchment_Area_ECA_Study/links/57d1806c08ae601b39a1d936.pdf}
+\newline
+[7]  \url{https://www.jstor.org/stable/pdf/3582044.pdf}
+\newline
+[8] \url{https://www.researchgate.net/profile/Abigail_Fagan/publication/37619814_The_Relative_Contributions_Of_Parental_And_Sibling_Substance_Use_To_Adolescent_Tobacco_Alcohol_And_Other_Drug_Use/links/00463533c0b5f7e582000000.pdf}
+\newline
+[10] \url{https://www.samhsa.gov/data/sites/default/files/NSDUH-DetTabs-2015/NSDUH-DetTabs-2015/NSDUH-DetTabs-2015.pdf}
+\newline
+[11] \url{https://www.niaaa.nih.gov/alcohol-health/overview-alcohol-consumption/moderate-binge-drinking}
+\newline
+[12] \url{https://www.foodandwine.com/news/how-much-case-of-beer-costs-every-state-graphic}
+\newline
+[13] \url{https://graphics.wsj.com/table/BEER_06241}
+\newline
+[14] \url{https://www.theawl.com/2017/07/what-a-pack-of-cigarettes-costs-in-every-state-3/}
+\newline
+[15] \url{http://juul.com/}
+\newline
+[16] \url{https://www.forbes.com/sites/priceonomics/2018/05/18/heres-how-much-marijuana-costs-in-the-united-states-vs-canada/#355e127c538a}
+\newline
+[17] \url{https://www.cdc.gov/tobacco/data_statistics/fact_sheets/fast_facts/index.htm}
+\newline
+[18] \url{https://www.huffingtonpost.com/entry/marijuana-deaths-2014_us_56816417e4b06fa68880a217}
+\newline
+[19] \url{https://www.niaaa.nih.gov/alcohol-health/overview-alcohol-consumption/alcohol-facts-and-statistics}
+\newline
+[20] \url{https://www.drugabuse.gov/related-topics/trends-statistics/overdose-death-rates}
+
+\section*{Appendix}
+
+\begin{lstlisting}[language=python,breaklines=true]
+    # This program calculates and graphs a logarithmic regression function for a vector that includes data relating to the consumption of nicotine via e-cigarettes for adolescents
+
+    # import required libraries
+    import numpy as np
+    from matplotlib import pyplot
+    from scipy.optimize import curve_fit
+    from sklearn.metrics import r2_score
+    
+    # defines a template function for a logarithmic regression
+    def func(x, a, b, c):
+        return a + (np.log(x + c) / np.log(b))
+    
+    # defines the time domain for the available data set
+    time_domain = np.array([2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018])
+    
+    # gathered sample data sets (Source: National Youth Tobacco Survey)
+    p30D_youth = np.array([1.50, 2.80, 4.50, 13.40, 16.00, 11.30, 11.70, 20.8])
+    
+    # plots the gathered sample data
+    pyplot.plot(time_domain, p30D_youth, 'co', label='Gathered Youth Data (consistent use)')
+    
+    # run a logarithmic regression to find the curve of best fit
+    p30D_popt, p30D_pcov = curve_fit(func, time_domain, p30D_youth, p0=(-30, 1.1, 5))
+    
+    # create a denser domain and range for a smoother curve representation
+    xx = np.linspace(2011, 2028, 1000)
+    yy = func(xx, *p30D_popt)
+    
+    # calculate the data values of the regression that correspond to the sample data
+    yy_pred = []
+    for value in time_domain:
+        yy_pred = func(time_domain, *p30D_popt)
+    
+    # find and print correlation coefficient
+    print(r2_score(p30D_youth, yy_pred))
+    
+    # outline the values to be shown on the x-axis for readability
+    xticks = [2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026, 2028]
+    
+    # plot the regression function as a smooth, dotted curve
+    pyplot.plot(xx, yy, '--', label='Predicted Model (consistent use)')
+    pyplot.xticks(xticks)
+    
+    # label the axes and title of the table with appropriate names
+    pyplot.xlabel("Time (yrs)")
+    pyplot.ylabel("% Respondents")
+    pyplot.title("% Usage of E-Cigarettes by Adolescents")
+    
+    # apply the legend labels and show the graph to the user
+    pyplot.legend()
+    pyplot.show()    
+\end{lstlisting}
 
 \setcounter{section}{0}

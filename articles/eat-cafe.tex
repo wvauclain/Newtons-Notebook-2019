@@ -1,2 +1,106 @@
 \nnarticleheader{Analyzing Demographics Of EAT Cafe}{Nikhil Chakraboty '19}
 
+In the fall of junior year, Haverford School students interested in pursuing science outside of the classroom are invited to apply for the Haverford School Research Program, a program that pairs students with laboratories in the Philadelphia area. Students spend six to eight weeks in their lab over the summer, and then in the fall of their senior year take a class where they learn how to write scientific articles and create posters. The final project of this class is to write up a detailed paper illustrating the work of the lab they interned in. This is Nikhil Chakraborty’s final paper, which he wrote after spending his summer designing surveys to analyze the demographics of a pay-what-you-can cafe in Philadelphia.
+
+\subsection*{Analyzing Demographics of EAT Cafe, A Pay-What-You-Can Cafe, To Determine Groups of Need Served and Inform Outreach Efforts}
+
+\textbf{Abstract}
+
+Pay-what-you-can (PWYC) pricing is a model where customers pay what they can afford. This paper analyzes the demographics of one PWYC cafe in West Philadelphia: EAT Cafe. Servers collected data on consumers’ age, gender, race, and whether they came with their families through observational tallies. These data were compared to the amount paid, if the customer was a repeat, and if so, how often the customer came, since paying habits and repeat customer volume were assumed to be indicators of need. Results showed that people of color, adults aged 18 - 59, and single males were groups that needed and used the Cafe the most. This information will be useful for future outreach efforts and applying for targeted grants.
+\newline\newline\newline
+\textbf{Introduction}
+
+Pay-what-you-can (PWYC)/pay-what-you-want (PWYW) pricing are models where customers pay what they can afford or what they think is right, respectively. Such models are becoming increasingly popular for a variety of purposes in both nonprofits and businesses. There are many ways of optimizing the profits from PWYC/PWYW models, like by donating a portion of revenue to charity (and advertising as such), listing suggested prices on all products, and offering quality service (Gneezy et al., 2010; Kim, Kaufmann, \& Stegemann, 2013). There are also numerous ways PWYC/PWYW models can risk losing money, such as entering a market with significant competition from fixed-price models, not building good relationships with consumers, and trying to use PWYC/PWYW on expensive products (Kim et al., 2013).
+
+Being a nonprofit PWYC organization adds even more factors to consider. For one, community interaction becomes even more important; a PWYC organization needs customers who can pay the full price as well as those who can not. Also, outreach efforts must be based on factual clientele information. Finally, a nonprofit PWYC needs a steady supply of targeted grants, many of which require organizations to prove, using data, that they are serving the demographic groups the grants target (Dobscha \& Eckhardt, 2018). Examples of groups that grants target include people facing homelessness, young single mothers, and people of color.
+
+This study develops techniques for surveying and analyzing the clients of EAT Cafe, a PWYC cafe in West Philadelphia, to determine the demographics served. It will help inform grant applications and outreach efforts. To perform the study, servers collected data on consumers’ age, gender, race, and whether they are part of a family through observational tallies. These data were compared to the amount paid and how often the customer came, since paying habits and repeat customer volume were assumed to be indicators of need. We hypothesized that our major groups of need are families and people of color because, according to prior server observations, they comprise most of the repeat customers and underpayers. We also made plans to collect further information about the cafe’s patrons through a direct, audio-assisted survey. The results will help inform EAT Cafe’s outreach efforts and applications for targeted grants.
+
+\textbf{Methods}
+
+Servers collected data over two weeks (July 25--August 5). Each night, they would record each table’s information: table number, number of people, if the table is a family (defined by at least one guardian and one dependent child), and each customer’s information: age, race, gender, if the customer is a repeat, and if so, how often the customer comes. Servers would approximate age and group people into 5 categories: young child (0--12), teenager (13--17), young adult (18--39), older adult (40--59), and senior citizen (60+). Servers would rely on their past knowledge to determine if someone was a repeat customer and how often they came. The figure below (Figure~\ref{fig:server-demographics}), shows the tallying spreadsheet used to record customers’ information.
+
+\begin{figure}[h]
+    \centering \includegraphics*[scale=.5]{assets/tallying-spreadsheet.png}
+    
+    \caption{Server Demographics Tally. The columns left of the bold line record information about the table as a whole, while the columns right of the bold line record information about each consumer.}\label{fig:server-demographics}
+\end{figure}
+
+These data were then compared to the POS System to determine how much each person paid. Finally, we drew correlations between independent variables: age, race, gender, and whether the person came with their family, and dependent variables: whether the person paid greater than \$0, if the customer was a repeat, and how often the customer came. Since all the data were categorical, chi-square tests (a method of determining if a correlation is significant) were used for analysis.
+
+The reason we chose to measure age, race, gender, and if the client was part of a family was because many grants target certain demographics within these categories (ex.\ young people, the elderly, people of color, and single mothers). The variables will help us distinguish if EAT Cafe serves a certain group in need, allowing us to know which targeted grants are available for the restaurant.
+
+\textbf{Results}
+
+There are 5 significant correlations between the independent variables (age, race, gender, and if the customer is part of a family) and the dependent variables (whether the table paid greater than \$0, if the customers are repeats, and how often the customers come). Chi-square tests return p-values; that is, the probability the correlation could happen by chance. We set an alpha value of 0.2, meaning any correlation with a p-value less than 0.2 was considered significant. 0.2 is high, but we wanted to give the statistical tests leeway since we could not be sure the sample we observed represented the entire EAT Cafe community.
+
+The first correlation was that there was a significant difference in the number of repeat customers among people of color and people not of color. The p-value was \(2.473 * 10^{-5}\), indicating a strong disparity. Looking at the data, it seems that people of color come more often to the Cafe. The graph is shown below (Figure~\ref{fig:race-v-repeat}).
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.5]{assets/race-v-repeat.png}
+    
+    \caption{Numbers of customers who pay among different race groups.
+    \textbf{p-value} = \(2.473 * 10^{-5}\)}\label{fig:race-v-repeat}
+\end{figure}
+
+The second correlation was that there is a significant difference in the number of people paying greater than \$0 for their meals among people of color and people not of color. The p-value was \(4.08 * 10^{-6}\), indicating a strong disparity. Looking at the data, it seems that people of color are more likely not to pay for their meals. The graph is shown below (Figure~\ref{fig:race-v-pay}). Note that this disparity is likely not due to the differences in customer volume across races, since a chi-square test takes that into account. However, repeat customer volume may explain why the disparity is so high (as there are likely people who come often to the Cafe without paying, and these people were counted more than once).
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.5]{assets/race-v-pay.png}
+    
+    \caption{Numbers of customers who pay among different race groups
+    \textbf{p-value} = \(4.08 * 10^{-6}\)}\label{fig:race-v-pay}
+\end{figure}
+
+The third correlation is that there is a significant difference in the number of people paying greater than \$0 for their meals among people coming with families and people not coming with families. The p-value in 0.0687, suggesting a fairly strong, but not overwhelming disparity. Based on the data below (Figure~\ref{fig:family-v-pay}), it seems that people not coming with families are more likely not to pay for their meals.
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.5]{assets/family-v-pay.png}
+    
+    \caption{Number of customers who pay among people who come with or without families \textbf{p-value}~=~\(0.0687\)}\label{fig:family-v-pay}
+\end{figure}
+
+The fourth correlation is that there is a significant difference in the number of people paying greater than \$0 for their meals among young adults (ages 18--39), older adults (ages 40--59), and senior citizens (ages 60+). The p-value is 0.0751, suggesting a fairly strong, but not overwhelming disparity. Based on the data on the next page (Figure~\ref{fig:age-v-pay}), it seems that senior citizens are more likely to pay greater than \$0 for their meals than any of the other two age groups.
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.5]{assets/age-v-pay.png}
+    
+    \caption{Numbers of customers who pay among different age groups
+    \textbf{p-value} = \(0.0751\)}\label{fig:age-v-pay}
+\end{figure}
+
+The fifth and final correlation is that there is a significant difference in the number of people paying greater than \$0 for their meals among males and females. The p-value is 0.0778, suggesting a fairly strong, but not overwhelming disparity. Based on the data on the next page (Figure~\ref{fig:gender-v-pay}), it appears men tend to not pay more often than women.
+
+\begin{figure}[H]
+    \centering \includegraphics*[scale=.5]{assets/gender-v-pay.png}
+    
+    \caption{Numbers of customers who pay among different genders
+    \textbf{p-value} = \(0.0778\)}\label{fig:gender-v-pay}
+\end{figure}
+
+\textbf{Discussion}
+
+Results show that, as we expected, there are certain demographics that EAT Cafe serves more than others. People of color, young and older adults, and males were the groups that came the most often and paid \$0. Surprisingly, people in families paid significantly more than people that didn’t come in families, contrary to the original hypotheses. More research should be conducted into why this is, especially because there are numerous single mothers receiving WIC (Women, Infants, and Children) aid near EAT Cafe, suggesting an area of need.
+
+Knowing which groups use EAT Cafe’s services the most can be useful for outreach efforts. EAT Cafe should continue advertising to the demographics described above. The data can also be useful for obtaining targeted grants; for example, EAT Cafe can easily prove that it helps communities of color, thereby putting it in the running for any grants that serve people of color.
+
+However, note that these results should not be taken as the final say on who EAT Cafe serves. Data were collected over a short time frame (2 weeks), and the demographics may differ week-to-week. Also, we tested several dependent variables (repeat customer volume, paying customer volume, and how often repeat customers come), but we didn’t test for independence between these dependent variables. Therefore, it is possible that one disparity may have partially caused many of the other disparities we observed. More study must be done to verify the metrics gathered and investigate if each disparity is independent from the other.
+
+Nevertheless, the results still provide important background for further investigation of EAT Cafe. There is still a lot of information we do not have about the customers, including their housing, energy, and food situation (all of which are data points that certain grants target). To gather these data, we plan to administer an audio-assisted computer survey directly to patrons. The survey will pull from numerous established questionnaires, including the USDA food security scale, Children’s Health Watch, and the Building Wealth and Health Network Survey. The entire survey will be at a 4th grade reading level, therefore allowing us to collect data with just verbal consent, as per IRB regulations. Once these studies have been completed, we will have a fully functioning metrics system for EAT Cafe which will help apply for grants and inform outreach efforts.
+
+\textbf{Acknowledgments}
+
+I would like to thank Dr.\ Mariana Chilton, Ms.\ Victoria Egan, Ms.\ Gabriella Grimaldi, Ms.\ Valerie Erwin and the EAT Café staff, Ms.\ Pam Phojanakong, and everyone else at the Center for Hunger-Free Communities for making this project happen. I would also like to thank Ms.\ Kara Cleffi for supervising the research process throughout and helping me present my work.
+
+\textbf{References}
+
+Eckhardt, G. M., \& Dobscha, S. (2018). The Consumer Experience of Responsibilization: The Case of Panera Cares. Journal of Business Ethics. doi:10.1007/s10551-018-3795-4
+
+Gneezy, A., Gneezy, U., Nelson, L. D., \& Brown, A. (2010). Shared Social Responsibility: A Field Experiment in Pay-What-You-Want Pricing and Charitable Giving. Science,329(5989), 325-327. doi:10.1126/science.1186744
+
+Kim, J., Natter, M., \& Spann, M. (2009). Pay What You Want: A New Participative Pricing Mechanism. Journal of Marketing, 73(1), 44-58. doi:10.1509/jmkg.73.1.44
+
+Kim, J., Kaufmann, K., \& Stegemann, M. (2013). The impact of buyer–seller relationships and reference prices on the effectiveness of the pay what you want pricing mechanism. Marketing Letters, 25(4), 409-423. doi:10.1007/s11002-013-9261-2
+
+
+\setcounter{figure}{0}
