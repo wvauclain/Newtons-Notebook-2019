@@ -11,11 +11,13 @@
 \usepackage{xurl}
 \usepackage{listings}
 \usepackage{tocloft}
+\usepackage{setspace}
 
 \renewcommand{\cftpartfont}{\Large\bfseries}
 \renewcommand{\cftsecfont}{\normalsize}
 
 \setlength{\parskip}{\baselineskip}
+\renewcommand{\baselinestretch}{1.5}
 
 \addtolength{\oddsidemargin}{-.25in}
 \addtolength{\evensidemargin}{-.25in}
@@ -26,9 +28,9 @@
 \begin{document}
 \setcounter{tocdepth}{1}
 
+\begin{spacing}{1.0}
 \tableofcontents
-
-\renewcommand{\baselinestretch}{1.5}
+\end{spacing}
 
 \newpage
 
