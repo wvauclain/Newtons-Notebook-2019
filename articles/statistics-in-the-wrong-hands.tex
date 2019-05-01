@@ -1,10 +1,11 @@
 \nnarticleheader{Statistics in the Wrong Hands}{Will Vauclain '19}
 
-Statistics in the Wrong Hands
 “Facts are stubborn things, but statistics are pliable.”
 ― Mark Twain
 
 The general public often sees Statistics as a field of absolutes, a perfect measure of the world. Unfortunately, this is far from true. In the wrong hands, statistics can be manipulated and selectively reported to tell whatever narrative the rogue statistician desires. Incompetent statisticians can often reach completely outlandish conclusions by falling into simple traps. This article will explore some of the most common statistical traps and how to avoid them.
+
+\subsection*{Simpson’s Paradox}
 
 Simpson’s Paradox is one of the most widely known statistical traps. The trap arises whenever a statistician combines multiple groups together in calculating statistics that are better understood separately.
 
@@ -29,40 +30,33 @@ The same number of people of each eye color applied to the college, but only 160
 
 The actual college admissions process is much more complicated, and this simplified example does not claim to conclusively prove that there is no bias towards any particular group; instead, the model was constructed simply as a demonstration of a place where Simpson’s Paradox could be particularly relevant, and to show that a more thorough analysis of any situation is usually necessary before conclusive results can be determined. In order to avoid Simpson’s Paradox, a statistician must be careful to evaluate subpopulations separately where each subpopulation is likely to have different probabilities.
 
+\subsection*{Human Perception of Randomness}
+
 \begin{center}
     THHTTHTHHHHTHHTTTTHHTTHTHHHHTTTTTHHTHHTTTHHTHTHTHH
 \end{center}
-
 If I were to tell you that this was a string of 50 random coin flips simulated by my computer, would you believe me? Or are there too many patterns, too many repeats of the same coin in a row, for this to possibly be random? Is the sequence below more random?
-
 \begin{center}
     HHTTTHTTHHTHTTHHHTTHTHTHHHTTTHHTHTHHTTHTHHTHTHHHTT
 \end{center}
-
 For most humans, the lower sequence would be perceived as more random than the upper sequence, but I just made the lower sequence by typing keys “randomly” on my keyboard. The key difference between these two sequences illustrates why humans have such a difficult time believing that certain sequences are truly random.
 
 Over tens of thousands of years of evolution, humans have evolved to be able to recognize patterns easily. This adaptation has made us extremely good at surviving in unexpected environments, but our skills of perception can also cause us to interpret patterns out of random noise. One of the most famous examples of this is the “man in the moon.” Subconsciously looking for a pattern in the messy lunar surface, people looked up in the sky and saw a face that did not exist. 
 
 In this case, the large runs of consecutive tails and heads in the first example is what makes us think that the second string of coin flips is more random. Although this is to be expected, especially because of our pretty large sample size, humans still look at large runs and see patterns that are not really there. This can cause humans to misinterpret all kinds of information. For example, students tend to worry on tests when they observe some sort of “answer pattern,” believing that they have answered incorrectly because the answers “should be more random.” In actuality, statistics predicts some level of pattern existing in random data sets because of the probabilities involved. In order to prevent yourself from falling into this trap, the most important thing to keep in mind is that random datasets can seemingly still have “patterns.” Very few truly random samples are completely devoid of data that could be interpreted as some form of pattern.
 
+\subsection*{The Bayesian Trap}
+
 Suppose that you had a routine blood test at the doctor’s office. Later, the doctor calls you and tells you that you have tested positive for an extremely rare disease. The test correctly identifies 99\% of the population that does not have the disease, and only incorrectly diagnoses 1\% of the people that have the disease. How likely do you think it is that you have the disease, given your positive test result?
 
 If you said that it was 99\%, you have just fallen prey to the trap of Bayes’ Theorem. In order to properly work out the probability of having the disease given that you have tested positive, you need more information. The chance that you have the disease is not only influenced by the chance of a false negative and a false positive, but also by the percentage of tested people who have the disease. To work out the probability that you have the disease given that you have tested positive, you need to employ Bayes’ Theorem, which states that for two independent events \(A\) and \(B\):\@
-\[P(A|B) = P(B|A) * P(A) / P(B)\]
-
+\[P(A|B) = \frac{P(B|A) * P(A)}{P(B)}\]
 Stated simply, the theorem shows that the probability that \(A\) happened given that \(B\) happened is equal to the probability that \(B\) happened given that \(A\) happened multiplied by the probability that \(A\) happened over the probability that \(B\) happened. For this example, we will label the relevant events as follows: \(H\) = having the disease, and \(T\) = testing positive. We want the probability that we have the disease, given that we tested positive, so we will plug those numbers into the equation:
-
 \[P(H|T) = \frac{P(T|H) * P(H)}{P(T)}\]
-
 The first term on the right is the probability that someone tests positive given that they have the disease, which was said by the doctor to be 99\%. The next term illustrates why the problem is not as simple as one might have initially expected. \(P(H)\) is the probability of having the disease, which is roughly equal to the percentage of the population that has the disease. Your chances of having the disease change based on how common the disease is. You call the doctor back to ask this, and the doctor tells you that the disease only exists in .1\% of the population. Plugging these numbers back into the equation gives us:
-
 \[P(H|T) = \frac{99\% * .1\%}{P(T)}\]
-
 \(P(T)\), or the probability of testing positive, is slightly more complicated to work out. Breaking this apart can help us to solve for it. \(P(T)\) is equal to the probability of having the disease and testing positive plus the probability of not having the disease and testing positive. 99.9\% of the population does not have the disease, and 1\% of those people incorrectly test positive, so .999\% of the population tests positive and does not have the disease. .1\% of the population has the disease, and 99\% of them test positive, so .099\% of the population has the disease and tests positive. Adding those two together gives us a 1.098\% chance of testing positive. Plugging that back into the equation will give us your final probability of having the disease:
-
-\[P(H|T) = \frac{99\% * .1\%}{1.098\%}\]
-\[P(H|T) \approx 9\% \]
-
+\[P(H|T) = \frac{99\% * .1\%}{1.098\%} \approx 9\%\]
 You have about a 9\% chance of having the disease given testing positive. Just based off of the blood test, you have nothing to worry about. By following Bayes’ Theorem, we have shown that your initial perception of the situation greatly overestimated the actual probabilities involved. Because 99.9\% of the population does not have the disease, far more of them test positive than people who actually have the disease.
 
 When presented with the problems that have been shown here, it would be easy to believe that Statistics is a flawed field. Indeed, I have demonstrated only a few of the many traps that statisticians can fall into while interpreting data. What I hope you remember, more than any of the specifics, is that it is always important to independently verify statistics as they can easily become skewed by rogue interpretations.

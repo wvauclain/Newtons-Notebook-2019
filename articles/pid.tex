@@ -2,7 +2,7 @@
 
 At a very basic level, robotics can be seen as the process of intelligently controlling a motor or motors to complete a task. For example, controlling a robotic arm to grab an object. While robotic arms and many other applications of robotics involve movement in 3D space, they are in fact a combination of 1-dimensional movements. In the case of a 3D printer, where a printing nozzle moves in 3D space, the motion is usually accomplished by movements along linear rails in each of the X-, Y-, and Z-axes.
 
-Robotics operations often require precise control of each of the robot’s axial movements. However, one cannot simply command the motors to go to the desired position. Actually, motors are only controlled by input voltage, which is proportional to the speed of the motor. The only commands that motors listen to are “faster” and “slower”. Sensors need to provide feedback to precisely control motors.
+Robotics operations often require precise control of each of the robot’s axial movements. However, one cannot simply command the motors to go to the desired position. Actually, motors are only controlled by input voltage, which is proportional to the speed of the motor. The only commands that motors listen to are “faster” and “slower.” Sensors need to provide feedback to precisely control motors.
 
 When a feedback loop is established, the sensor feeds information about the environment back to the motor so that the motor knows how to move. Then the new movement is again detected by the sensor and new feedback is generated. Because of this process, feedback loops are also called “close-loops.”
 
@@ -25,8 +25,9 @@ In the cases when the P-controller cannot bring the error to zero, the integral 
 
 The derivative component addresses the other problem with the P-controller: oscillation. The reason for the P-controller’s oscillation is overshooting caused by delay in sensor feedback. Before the sensor can tell the P-controller to stop, the robot often has already crossed the target and has to move backward. The derivative component can tell the robot to slow down when it is approaching the target too quickly.
 
-When the three components are combined and the constants are properly tuned, PID controllers can greatly benefit the subsystems in robots. This increase in speed and accuracy translates directly into more accurate autonomous motion, leading to greater success.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{assets/pid-graphic.png}
+\end{figure}
 
-\begin{center}
-    DO WE WANT A PICTURE HERE TO FILL OUT THE REST OF THE PAGE\@?
-\end{center}
+When the three components are combined and the constants are properly tuned, PID controllers can greatly benefit the subsystems in robots. This increase in speed and accuracy translates directly into more accurate autonomous motion, leading to greater success.

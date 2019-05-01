@@ -2,7 +2,7 @@
 
 This past March, three Haverford students were given 14 straight hours and the task of using mathematics to model drug use trends in the United States. These three students, Nikhil Chakraborty, Alexander Greer, and Mickey Fairorth, participated in a nationwide challenge called the Mathworks Math Modeling (M3) Challenge. This challenge is open to all high school juniors and seniors and aims to encourage students to work as a team to tackle real world problems. Topics in years past have ranged from climate change and its effects on sea levels to food insecurity around the world. This year’s challenge required the students to analyze an issue that plagues the nation: substance abuse and addiction.
 
-The problem contained three separate parts. The first question focused on high school use of nicotine, particularly through e-cigarettes or vapes. The second question asked the students to analyze factors that lead to substance abuse and addiction. These factors could include income, race, mental illness, and social behavior. The third and final question highlighted the damaging and lasting impact of substance abuse. Specifically, the three students were asked to make a model that included both financial and non-financial impacts of substance abuse and then use the model to determine which drugs have the most detrimental impacts.
+The problem contained three separate parts. The first question focused on high school use of nicotine, particularly through e-cigarettes or vapes. The second question asked the students to analyze factors that lead to substance abuse and addiction. These factors could include income, race, mental illness, and social behavior. The third and final question highlighted the damaging and lasting impacts of substance abuse. Specifically, the three students were asked to make a model that included both financial and non-financial impacts of substance abuse and then use the model to determine which drugs have the most detrimental impacts.
 
 At the end of the 14 hours, the students had created a nearly 20 page report that included an executive summary, graphs and charts, and a Python script that was used to fit trends. Below is the executive summary and their answer to the first question.
 
@@ -52,9 +52,9 @@ We are asked to develop a model predicting the changes in the prevalence of nico
         \midrule
         “Ever Used” & Abbreviated term for survey respondents who replied as having consumed the surveyed substance at any point throughout their lives. In general, “Ever Used” implies any form of prior exposure to the substance. & N/A \\
         \midrule
-        t & Used in equations to represent time as an input to determine \% respondents & Time (years) \\
+        t & Used in equations to represent time as an input to determine \% respondents. & Time (years) \\
         \midrule
-        \(F_x(t)\) & A function of time (t) relating to \% respondents admitting to nicotine consumption ``x'' category. & \% \\
+        \(F_x(t)\) & A function of time (t) relating to \% respondents admitting to nicotine consumption ``\(x\)'' category. & \% \\
         \bottomrule
     \end{tabular}
 \end{center}
@@ -75,8 +75,8 @@ Nicotine consumption per capita was divided into two categories: Adolescents and
         \midrule
         Adolescents (p30D) & -----* & \colorbox{pink}{1.50\%} & \colorbox{pink}{2.80\%} & \colorbox{pink}{4.50\%} & \colorbox{pink}{13.4\%} & \colorbox{pink}{16\%} & \colorbox{pink}{11.3\%} & \colorbox{pink}{11.7\%} & \colorbox{pink}{20.8\%} \\
         Adolescents (Ever Used) & -----* & \colorbox{pink}{3.1\%} & \colorbox{pink}{6.6\%} & \colorbox{pink}{7.7\%} & \colorbox{pink}{19.1\%} & \colorbox{pink}{26.6\%}  & \colorbox{pink}{22.6\%} & \colorbox{pink}{21.1\%} & \colorbox{yellow}{39.7\%} \\
-        Adult (p30D) & \colorbox{green}{1.00\%} & \colorbox{yellow}{1.50\%} & \colorbox{yellow}{1.30\%} & \colorbox{green}{2.6\%} & \colorbox{CornflowerBlue}{3.70\%} & \colorbox{green}{3.5\%} & \colorbox{Orchid}{3.2\%} & -----\textdagger{} & -----\textdagger{} \\
-        Adult (Ever~Used) & \colorbox{green}{3.30\%} & \colorbox{yellow}{6.20\%} & \colorbox{yellow}{8.10\%} & \colorbox{green}{8.5\%} & \colorbox{CornflowerBlue}{12.60\%} & \colorbox{green}{13.90\%}  & \colorbox{Orchid}{15.30\%} & -----\textdagger{} & -----\textdagger{} \\
+        Adults (p30D) & \colorbox{green}{1.00\%} & \colorbox{yellow}{1.50\%} & \colorbox{yellow}{1.30\%} & \colorbox{green}{2.6\%} & \colorbox{CornflowerBlue}{3.70\%} & \colorbox{green}{3.5\%} & \colorbox{Orchid}{3.2\%} & -----\textdagger{} & -----\textdagger{} \\
+        Adults (Ever~Used) & \colorbox{green}{3.30\%} & \colorbox{yellow}{6.20\%} & \colorbox{yellow}{8.10\%} & \colorbox{green}{8.5\%} & \colorbox{CornflowerBlue}{12.60\%} & \colorbox{green}{13.90\%}  & \colorbox{Orchid}{15.30\%} & -----\textdagger{} & -----\textdagger{} \\
         \bottomrule
     \end{tabular}
 \end{center}
@@ -127,7 +127,7 @@ Nicotine consumption per capita was divided into two categories: Adolescents and
 
 Next, data from each category relating to e-cigarette consumption (\textbf{Table 1}) was plotted against the respective year of collection. Each data set exhibited a visible upwards and decreasing trend (i.e.\ positive first derivative and negative second derivative), and so a logarithmic equation was chosen as a regression template. This equation type was chosen because of both its optimized correlation to the sample data and its end behavior. Other types (polynomial, exponential, and logistic) were considered but did not adequately or accurately predict the future growth of the data represented.
 
-Regressions for each data set were calculated using Desmos and verified using a python script (\textbf{Appendix A}). The resulting logarithmic regression curves were plotted alongside the sample data, as seen in \textbf{Figure 1.} Explicit definitions for each regression are seen in \textbf{Eq. 1.–4.}
+Regressions for each data set were calculated using Desmos and verified using a python script (\textbf{Appendix A}). The resulting logarithmic regression curves were plotted alongside the sample data, as seen in \textbf{Figure 1.} Explicit definitions for each regression are seen in \textbf{Eqs. 1.–4.}
 
 \subsubsection*{Figure 1.}
 \begin{figure}[H]
@@ -135,26 +135,12 @@ Regressions for each data set were calculated using Desmos and verified using a 
 \end{figure}
 
 \subsubsection*{Equations}
-
-\begin{equation}
-    \text{\colorbox{Orchid}{--} } F_{teen\_e-cigs\_ever\_used}(t) = –390.356 + \log_{1.00813}(t + 23.9438)
-\end{equation}
-\[R^2 = 0.8336\]
-
-\begin{equation}
-    \text{\colorbox{Aquamarine}{--} } F_{teen\_e-cigs\_p30D}(t) = –31.8178 + \log_{1.05158}(t + 5.11625)
-\end{equation}
-\[R^2 = 0.7694\]
-
-\begin{equation}
-    \text{\colorbox{red}{--} } F_{adult\_e-cigs\_ever\_used}(t) = –170.08+ \log_{1.01856}(t + 24.33)
-\end{equation}
-\[R^2 = 0.9746\]
-
-\begin{equation}
-    \text{\colorbox{blue}{--} } F_{adult\_e-cigs\_p30D}(t) = –5.9169 + \log_{1.29184}(t + 5.65196)
-\end{equation}
-\[R^2 = 0.8145\]
+\begin{align}
+    \text{\colorbox{Orchid}{--} } F_{teen\_e-cigs\_ever\_used}(t) = –390.356 + \log_{1.00813}(t + 23.9438), R^2 = 0.8336 \\
+    \text{\colorbox{Aquamarine}{--} } F_{teen\_e-cigs\_p30D}(t) = –31.8178 + \log_{1.05158}(t + 5.11625), R^2 = 0.7694 \\
+    \text{\colorbox{red}{--} } F_{adult\_e-cigs\_ever\_used}(t) = –170.08+ \log_{1.01856}(t + 24.33), R^2 = 0.9746 \\
+    \text{\colorbox{blue}{--} } F_{adult\_e-cigs\_p30D}(t) = –5.9169 + \log_{1.29184}(t + 5.65196), R^2 = 0.8145
+\end{align}
 
 Based on this model, it is predicted that the percentages of respondents exposed to nicotine will be as follows: 30.6\% of teenagers (p30D), 71.1\% of teenagers (Ever Used), 6.4\% of adults (p30D), and 33.6\% of adults (Ever Used). Exact values for percentages throughout the next 10 years can be seen in \textbf{Table 3.}
 
@@ -162,44 +148,39 @@ Based on this model, it is predicted that the percentages of respondents exposed
 \begin{center}
     \begin{tabular}{p{1in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in}}
         \toprule
-        \multicolumn{11}{c}{Percentage of Adolescents and Adults}\\
-        \multicolumn{11}{c}{who Consistently Use Nicotine Cigarettes}\\    
+        \multicolumn{11}{c}{Percentage of Adolescents and Adults Predicted to Consistently}\\
+        \multicolumn{11}{c}{Use or to Ever Use E-Cigarettes for the Next 10 Years}\\    
         \midrule
         Year & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & 2026 & 2027 & 2028 \\
         \midrule
         Adolescents (p30D) & 20.8\% & 22.2\% & 23.5\% & 24.7\% & 25.8\% & 26.8\% & 27.9\% & 28.8\% & 29.7\% & \textbf{30.6\%} \\
         Adolescents (Ever~Used) & 41.3\% & 44.9\% & 48.5\% & 52.0\% & 55.4\% & 58.7\% & 61.9\% & 65.0\% & 68.1\% & \textbf{71.1\%} \\
         Adults (p30D) & 4.6\% & 4.8\% & 5.1\% & 5.3\% & 5.5\% & 5.7\% & 5.9\% & 6.1\% & 6.2\% & \textbf{6.4\%} \\
-        Adults (Ever Used) & 20.6\% & 22.2\% & 23.8\% & 25.3\% & 26.8\% & 28.2\% & 29.6\% & 31.0\% & 32.3\% & \textbf{33.6\%} \\
+        Adults (Ever~Used) & 20.6\% & 22.2\% & 23.8\% & 25.3\% & 26.8\% & 28.2\% & 29.6\% & 31.0\% & 32.3\% & \textbf{33.6\%} \\
         \bottomrule
     \end{tabular}
 \end{center}
 
-Next, data relating to traditional cigarette consumption was analyzed using a similar method. This time a downwards and decreasing (i.e.\ negative first and second derivatives) trend was noted. Thus a negative exponential equation was chosen as a regression template. The resulting curves were plotted (\textbf{Figure 2}) and the explicit equation definitions noted (\textbf{Eq. 5. \& 6.}). (Note: the data collected for this model represents p30D data in both age categories).
+Next, data relating to traditional cigarette consumption was analyzed using a similar method. This time a decreasing, concave upwards (i.e.\ negative first derivative and positive second derivative) trend was noted. Thus a negative exponential equation was chosen as a regression template. The resulting curves were plotted (\textbf{Figure 2}) and the explicit equation definitions noted (\textbf{Eqs. 5. \& 6.}). (Note: the data collected for this model represents p30D data in both age categories).
 
 \subsubsection*{Figure 2.}
 \begin{figure}[H]
     \centering \includegraphics*[scale=.25]{assets/math-modeling-figure-2.png}
 \end{figure}
 
-\begin{equation}
-    \text{\colorbox{Green}{--} } F_{teen\_cigarettes}(t) = 10.3076e^{–(0.122805)t}
-\end{equation}
-\[R^2 = 0.9467\]
+\begin{align}
+    \text{\colorbox{Green}{--} } F_{teen\_cigarettes}(t) = 10.3076e^{–(0.122805)t}, R^2 = 0.9467 \\
+    \text{\colorbox{Yellow}{--} } F_{adult\_cigarettes}(t) = 19.1561e^{-(0.0490464)t}, R^2 = 0.9253
+\end{align}
 
-\begin{equation}
-    \text{\colorbox{Yellow}{--} } F_{adult\_cigarettes}(t) = 19.1561e^{-(0.0490464)t}
-\end{equation}
-\[R^2 = 0.9253\]
-
-Based on this model, it is predicted that 1.1\% of teenagers and 7.9\% of adults will be consistent smokers by 2028. Exact values for percentages throughout the next 10 years can be seen in \textbf{Table 4}.
+Based on this model, it is predicted that 1.1\% of teenagers and 7.9\% of adults will be consistent smokers by 2028. Exact values for percentages throughout the next 10 years can be seen in \textbf{Table~4}.
 
 \subsubsection*{Table 4.}
 \begin{center}
     \begin{tabular}{p{1in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in} p{0.4in}}
         \toprule
         \multicolumn{11}{c}{Percentage of Adolescents and Adults Predicted to Consistently}\\
-        \multicolumn{11}{c}{Use or to Ever Use Nicotine Cigarettes for the Next 10 Years}\\    
+        \multicolumn{11}{c}{Use Nicotine Cigarettes for the Next 10 Years}\\    
         \midrule
         Year & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 & 2026 & 2027 & 2028 \\
         \midrule
@@ -277,6 +258,9 @@ Disadvantages
 [19] \url{https://www.niaaa.nih.gov/alcohol-health/overview-alcohol-consumption/alcohol-facts-and-statistics}
 \newline
 [20] \url{https://www.drugabuse.gov/related-topics/trends-statistics/overdose-death-rates}
+\newline
+
+\pagebreak
 
 \section*{Appendix}
 
@@ -292,43 +276,32 @@ Disadvantages
     # defines a template function for a logarithmic regression
     def func(x, a, b, c):
         return a + (np.log(x + c) / np.log(b))
-    
     # defines the time domain for the available data set
     time_domain = np.array([2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018])
-    
     # gathered sample data sets (Source: National Youth Tobacco Survey)
     p30D_youth = np.array([1.50, 2.80, 4.50, 13.40, 16.00, 11.30, 11.70, 20.8])
-    
     # plots the gathered sample data
     pyplot.plot(time_domain, p30D_youth, 'co', label='Gathered Youth Data (consistent use)')
-    
     # run a logarithmic regression to find the curve of best fit
     p30D_popt, p30D_pcov = curve_fit(func, time_domain, p30D_youth, p0=(-30, 1.1, 5))
-    
     # create a denser domain and range for a smoother curve representation
     xx = np.linspace(2011, 2028, 1000)
     yy = func(xx, *p30D_popt)
-    
     # calculate the data values of the regression that correspond to the sample data
     yy_pred = []
     for value in time_domain:
         yy_pred = func(time_domain, *p30D_popt)
-    
     # find and print correlation coefficient
     print(r2_score(p30D_youth, yy_pred))
-    
     # outline the values to be shown on the x-axis for readability
     xticks = [2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024, 2026, 2028]
-    
     # plot the regression function as a smooth, dotted curve
     pyplot.plot(xx, yy, '--', label='Predicted Model (consistent use)')
     pyplot.xticks(xticks)
-    
     # label the axes and title of the table with appropriate names
     pyplot.xlabel("Time (yrs)")
     pyplot.ylabel("% Respondents")
     pyplot.title("% Usage of E-Cigarettes by Adolescents")
-    
     # apply the legend labels and show the graph to the user
     pyplot.legend()
     pyplot.show()    

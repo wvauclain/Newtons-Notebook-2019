@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{amsmath}
+\usepackage[leqno]{amsmath}
 \usepackage{amssymb}
 \usepackage{units}
 \usepackage{wallpaper}
@@ -12,6 +12,11 @@
 \usepackage{listings}
 \usepackage{tocloft}
 \usepackage{setspace}
+\usepackage{titlesec}
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt}
 
 \renewcommand{\cftpartfont}{\Large\bfseries}
 \renewcommand{\cftsecfont}{\normalsize}
@@ -28,14 +33,38 @@
 \begin{document}
 \setcounter{tocdepth}{1}
 
+%\nnimagepage{Title_Page_2019.pdf}
+
+\begin{figure}[H]
+    \centering \includegraphics[scale=1]{newton.jpg}
+    \\
+    \textbf{\large{``To explain all nature is too difficult a task for any one man or even for any one age. `Tis much better to do a little with certainty and leave the rest for others that come after you.'' --Isaac~Newton}}
+\end{figure}
+
+\nnwallpaper{Intro_Pages_Border.pdf}
+
 \begin{spacing}{1.0}
 \tableofcontents
 \end{spacing}
 
 \newpage
+\subsection*{Mission Statement}
+The Haverford School’s math journal is designed to enhance the interests, talents, and achievements of all individuals in the mathematical sciences and promote the work of those most passionate about the discipline. The following articles were written by members of the Haverford community and edited by math journal staff. We hope these articles inspire readers to further explore the universally beautiful realm of mathematics.
+\subsection*{Staff}
+{\centering{}
+    \textbf{Editors-in-Chief:} Mickey Fairorth and Will Vauclain
+    \\
+    \textbf{Designer-in-Chief:} Alexander Greer
+    \\
+    \textbf{Faculty Advisor:} Dr.\ Mark Gottlieb
+    \\}
+\subsection*{Featured Mathematician: Leonhard Euler (1707--1783)}
+Leonhard Euler was a Swiss mathematician, physicist, astronomer, logician, and engineer. While some of his most famous work includes advancements in infinitesimal calculus and graph theory, Euler also made contributions to other branches of mathematics such as topology and analytic number theory. The world of mathematics also has Euler to thank for introducing certain terminology and notations, particularly the notion of the mathematical function in mathematical analysis. Throughout his life, he also studied and contributed to the fields of mechanics, fluid dynamics, optics, astronomy, and even music theory.
+Euler is the only mathematician to have two numbers named after him. The first, well-known to most high school math students, is Euler’s number, often referred to as just \(e\). Approximately equal to 2.71828, \(e\) serves many purposes in Calculus and is the basis for the natural logarithm. The other constant is the Euler-Mascheroni constant, known as \(\gamma{}\) (gamma) and approximately equal to 0.57721. Besides these numbers, Euler is also known for a very important identity; \(e^{i\pi} + 1 = 0\). This identity combines addition, multiplication, exponentiation, and equality, while relating five of the most important constants in mathematics: 0,1, \(\pi{}\), \(e\), and \(i\).
+\newpage
 
 % Begin the pure math section
-\addcontentsline{toc}{part}{Pure Math}
+\addcontentsline{toc}{part}{Pure Mathematics}
 \nnimagepage{Pure_Math_Title_Page.pdf}
 
 \nnwallpaper{Pure_Math_Border.pdf}
@@ -62,10 +91,10 @@
 \newpage
 
 % Begin the applied math section
-\nnwallpaper{Pure_Math_Border.pdf}
-\def\currentTitleWallpaper{Pure_Math_Border_Title.pdf}
+\nnwallpaper{Applied_Math_Border.pdf}
+\def\currentTitleWallpaper{Applied_Math_Border_Title.pdf}
 
-\addcontentsline{toc}{part}{Applied Math}
+\addcontentsline{toc}{part}{Applied Mathematics}
 \nnimagepage{Applied_Math_Title_Page.pdf}
 
 \input{articles/math-modeling.tex}
@@ -85,6 +114,17 @@
 \newpage
 
 \input{articles/eat-cafe.tex}
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \vspace*{125pt}
+    \includegraphics[scale=1.5]{newtons_notebook_fibonacci_spiral.png}
+    \vspace*{100pt}
+    \\
+    \Large If you are interested in contributing to Newton’s Notebook in 2019--2020, contact Alexander Greer, the Editor-in-Chief for Volume IV.
+\end{figure}
 
 \newpage
 
